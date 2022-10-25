@@ -44,8 +44,7 @@
 
 <script>
     const response = document.getElementById("response");
-
-    var responses = [
+    const responses = [
         "Have you tried clearing your cache?",
         "Have you tried increasing the RAM?",
         "Have you tried not using javascript?",
@@ -55,10 +54,19 @@
         "Have you considered PEBKAC?"
     ];
 
+    let used = [];
+    let answer = '';
 
     function askForHelp() {
-        var index = Math.floor(Math.random() * 7);
+        if (used.length === responses.length) {
+            used = [];
+        }
 
-        response.innerText = responses[index];
+        do {
+            answer = responses[Math.floor(Math.random() * 7)];
+        } while (used.includes(answer) || response.innerText === answer);
+
+        used.push(answer);
+        response.innerText = answer;
     }
 </script>
