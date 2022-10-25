@@ -32,8 +32,8 @@
         display: block;
         margin-left: auto;
         margin-right: auto;
-        max-width: 50%;
-        max-height: 50%;
+        max-width: 70%;
+        max-height: 70%;
     }
     #response {
         color: whitesmoke;
@@ -47,11 +47,16 @@
     const responses = [
         "Have you tried clearing your cache?",
         "Have you tried increasing the RAM?",
-        "Have you tried not using javascript?",
         'Have you tried turning it off and on again?',
-        "Have you tried checking the port is open?",
         "Have you tried validating the parameters?",
-        "Have you considered PEBKAC?"
+        "Have you checked the port is open?",
+        "Have you considered PEBKAC?",
+        "Have you tried getting a snack? Mmmm, cookies.",
+        "StackOverflow, ever heard of it?",
+        "You're gonna need a unit test for that.",
+        "Maybe normalize your database?",
+        "(╯°□°)╯︵ ┻━┻",
+        "What? No!",
     ];
 
     let used = [];
@@ -63,7 +68,7 @@
         }
 
         do {
-            answer = responses[Math.floor(Math.random() * 7)];
+            answer = responses[Math.floor(Math.random() * responses.length)];
         } while (used.includes(answer) || response.innerText === answer);
 
         used.push(answer);
